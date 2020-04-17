@@ -41,7 +41,7 @@
     "develop": "yarn check-types && gatsby develop --host=0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve --host=0.0.0.0",
     "clean": "gatsby clean",
     "check-types": "tsc",
     "test": "yarn check-types && jest"
