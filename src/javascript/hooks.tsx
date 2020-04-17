@@ -21,7 +21,7 @@ export const useEventChecked = (setChecked: (checked: boolean) => void) =>
 // `key` whenever it is updated, and initialize the state from `localStorage`,
 // if present. If `subscribe` is true, also propogate changes from localStorage
 // from other tabs into the state.
-export const useLocalStorage = function(
+export const useLocalStorage = function (
   key: string,
   initialValue: string | (() => string),
   subscribe: boolean = true
@@ -79,10 +79,16 @@ export const useLocalStorage = function(
   return [currentValue, setValueAndStore];
 };
 
+interface Stringable {
+  toString(): string;
+}
+
+// TODO - This hook can be replaced with a community-managed hook dependency.
+
 // Same as `useLocalStorage`, but typed. Uses `JSON.parse` and
 // `JSON.stringify`` to convert values back and forth between strings
 // in `localStorage`.
-export function useTypedLocalStorage<T>(
+export function useTypedLocalStorage<T extends Stringable>(
   key: string,
   initialValue: T | (() => T),
   subscribe: boolean = true
