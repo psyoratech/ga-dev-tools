@@ -23,13 +23,14 @@
     "@types/jest": "^25.2.1",
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
+    "@types/react-helmet": "^5.0.15",
     "@types/react-test-renderer": "^16.9.2",
     "babel-jest": "^25.3.0",
-    "babel-preset-gatsby": "^0.3.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^25.3.0",
     "prettier": "2.0.4",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "typescript": "^3.8.3"
   },
   "keywords": [
     "gatsby"
@@ -37,12 +38,13 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop --host=0.0.0.0",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest"
+    "check-types": "tsc",
+    "test": "yarn check-types && jest"
   },
   "repository": {
     "type": "git",
