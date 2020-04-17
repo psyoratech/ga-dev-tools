@@ -5,7 +5,9 @@ import Layout from "./layout"
 
 describe("Layout", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<Layout>Content</Layout>).toJSON()
+    const tree = renderer
+      .create(<Layout title="Page Title">Content</Layout>)
+      .toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

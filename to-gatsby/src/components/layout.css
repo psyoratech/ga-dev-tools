@@ -14,3 +14,7 @@ html, body,  #gatsby-focus-wrapper, #___gatsby {
   margin: 0;
   padding: 0;
 }
+
+p {
+  padding-bottom: 1em;
+}

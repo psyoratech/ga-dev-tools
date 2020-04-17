@@ -51,17 +51,35 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: theme.spacing(4),
   },
   home: {
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
     display: "flex",
     alignItems: "center",
+    borderBottom: `1px solid ${theme.palette.grey[600]}`,
   },
   homeIcon: {
     padding: theme.spacing(1),
+    fontSize: "1.5em",
   },
   main: {
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 1,
+    height: "100%",
+  },
+  contentWrapper: {
+    flexGrow: 1,
+    color: theme.palette.getContrastText(theme.palette.grey[200]),
+    backgroundColor: theme.palette.grey[200],
+  },
+  content: {
     flexGrow: 1,
     padding: theme.spacing(4),
+    maxWidth: "52em",
   },
-  content: {},
+  header: {
+    padding: theme.spacing(4, 6, 4),
+  },
 }))
 
 interface LayoutProps {
@@ -79,7 +97,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
             <Link to="/">
               <Typography
                 className={classnames(classes.innerNav, classes.home)}
-                variant="h5"
+                variant="h2"
               >
                 <Home className={classes.homeIcon} /> Home
               </Typography>
@@ -103,11 +121,13 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
         </ol>
       </nav>
       <main className={classes.main}>
-        <header>
-          TODO - add in header picture
+        <header className={classes.header}>
+          TODO - figure out the weird header photo svg thing.
           <Typography variant="h1">{title}</Typography>
         </header>
-        {children}
+        <div className={classes.contentWrapper}>
+          <section className={classes.content}>{children}</section>
+        </div>
       </main>
     </div>
   )
