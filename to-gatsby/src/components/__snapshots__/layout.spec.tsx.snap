@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders correctly 1`] = `
+Array [
+  <nav
+    className="makeStyles-nav-1"
+  >
+    <h5
+      className="MuiTypography-root MuiTypography-h5"
+    >
+      Demos & Tools
+    </h5>
+    <ol>
+      <li>
+        <a
+          href="/autotrack/"
+        >
+          Autotrack
+        </a>
+      </li>
+      <li>
+        <a
+          href="/account-explorer/"
+        >
+          Account Explorer
+        </a>
+      </li>
+    </ol>
+  </nav>,
+  <main
+    className="makeStyles-main-2"
+  >
+    Content
+  </main>,
+]
+`;

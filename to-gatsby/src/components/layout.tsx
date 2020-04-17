@@ -7,11 +7,41 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { makeStyles } from "@material-ui/core/styles"
+import Typography from "@material-ui/core/Typography"
+import { Link } from "gatsby"
 
-import Header from "./header"
 import "./layout.css"
 
-const Layout: React.FC = ({ children }) => {
+const useStyles = makeStyles(theme => ({
+  nav: {
+    "& ol": {
+      listStyle: "none",
+      margin: 0,
+      padding: 0,
+      "& li": {
+        "& a": {
+          padding: theme.spacing(1),
+          textDecoration: "none",
+          color: theme.palette.text.primary,
+          "&:hover": {
+            backgroundColor: theme.palette.grey[100],
+            color: theme.palette.getContrastText(theme.palette.grey[100]),
+          },
+        },
+      },
+    },
+  },
+  main: {
+    margin: "auto",
+  },
+}))
+
+interface LayoutProps {
+  title?: string
+}
+
+const Layout: React.FC<LayoutProps> = ({ children, title }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -21,24 +51,22 @@ const Layout: React.FC = ({ children }) => {
       }
     }
   `)
+  const classes = useStyles()
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      <nav className={classes.nav}>
+        <Typography variant="h5">Demos & Tools</Typography>
+        <ol>
+          <li>
+            <Link to="/autotrack/">Autotrack</Link>
+          </li>
+          <li>
+            <Link to="/account-explorer/">Account Explorer</Link>
+          </li>
+        </ol>
+      </nav>
+      <main className={classes.main}>{children}</main>
     </>
   )
 }

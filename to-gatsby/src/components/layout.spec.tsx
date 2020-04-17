@@ -1,13 +1,11 @@
 import * as React from "react"
 import * as renderer from "react-test-renderer"
 
-import Header from "./header"
+import Layout from "./layout"
 
-describe("Header", () => {
+describe("Layout", () => {
   it("renders correctly", () => {
-    const tree = renderer
-      .create(<Header siteTitle="Default Starter" />)
-      .toJSON()
+    const tree = renderer.create(<Layout>Content</Layout>).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
