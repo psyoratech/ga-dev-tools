@@ -14,20 +14,16 @@ const globalTheme = createMuiTheme({
     primary: orange,
   },
   typography: palette => ({
-    // What does this mean???
-    fontFamily: "inherit",
+    fontFamily: ['"Roboto"', "sans-serif"].join(", "),
     h1: {
       fontSize: "2.5em",
-      fontWeight: 300,
     },
     h2: {
       fontSize: "1.75em",
-      fontWeight: 300,
       margin: "1em 0",
     },
     h3: {
       fontSize: "1.25em",
-      fontWeight: 700,
       margin: "1em 0",
     },
   }),
