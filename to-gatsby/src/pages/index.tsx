@@ -30,7 +30,7 @@ const PartnersImage = () => {
   )
 }
 
-const IndexPage = () => (
+const IndexPage: React.FC = () => (
   <Layout title="Discover the Gooogle Analytics platform">
     <PartnersImage />
     <Typography variant="h2">About This Site</Typography>
