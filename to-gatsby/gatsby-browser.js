@@ -31,7 +31,7 @@ const globalTheme = createMuiTheme({
 
 const styles = theme => ({
   "@global": {
-    "html body #gatsby-focus-wrapper, #___gatsby": {
+    "html, body, #gatsby-focus-wrapper, #___gatsby": {
       height: "100%",
       margin: 0,
       padding: 0,
