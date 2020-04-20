@@ -45,6 +45,10 @@ const styles = theme => ({
     },
     a: {
       color: theme.palette.primary[800],
+      textDecoration: "none",
+      "&:hover": {
+        textDecoration: "underline",
+      },
     },
   },
 })
