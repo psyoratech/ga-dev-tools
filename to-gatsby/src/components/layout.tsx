@@ -17,7 +17,6 @@ import "./layout.css"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: "100%",
     display: "flex",
   },
   nav: {
