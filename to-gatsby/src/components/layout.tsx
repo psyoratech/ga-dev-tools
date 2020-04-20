@@ -19,6 +19,12 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
   },
+  navLinkBackgroundHover: {
+    "&:hover": {
+      backgroundColor: theme.palette.grey[100],
+      color: theme.palette.getContrastText(theme.palette.grey[100]),
+    },
+  },
   nav: {
     minWidth: "260px",
     borderRight: `1px solid ${theme.palette.grey[200]}`,
@@ -38,10 +44,6 @@ const useStyles = makeStyles(theme => ({
           color: "unset",
           width: "100%",
           textDecoration: "none",
-          "&:hover": {
-            backgroundColor: theme.palette.grey[100],
-            color: theme.palette.getContrastText(theme.palette.grey[100]),
-          },
         },
       },
     },
@@ -51,11 +53,14 @@ const useStyles = makeStyles(theme => ({
     paddingLeft: theme.spacing(4),
   },
   home: {
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(2),
     display: "flex",
     alignItems: "center",
     borderBottom: `1px solid ${theme.palette.grey[600]}`,
+    "&:hover": {
+      color: theme.palette.primary.main,
+    },
   },
   homeIcon: {
     padding: theme.spacing(1),
@@ -81,6 +86,24 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(4, 6, 4),
   },
 }))
+
+interface NavLinkProps {
+  classes: ReturnType<typeof useStyles>
+  to: string
+}
+
+const NavLink: React.FC<NavLinkProps> = ({ classes, to, children }) => {
+  return (
+    <li>
+      <Link
+        className={classnames(classes.innerNav, classes.navLinkBackgroundHover)}
+        to={to}
+      >
+        {children}
+      </Link>
+    </li>
+  )
+}
 
 interface LayoutProps {
   title: string
@@ -108,16 +131,12 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
               Demos & Tools
             </Typography>
           </li>
-          <li>
-            <Link className={classes.innerNav} to="/autotrack/">
-              Autotrack
-            </Link>
-          </li>
-          <li>
-            <Link className={classes.innerNav} to="/account-explorer/">
-              Account Explorer
-            </Link>
-          </li>
+          <NavLink to={"/autotrack/"} classes={classes}>
+            Autotrack
+          </NavLink>
+          <NavLink to={"/account-explorer/"} classes={classes}>
+            Account Explorer
+          </NavLink>
         </ol>
       </nav>
       <main className={classes.main}>
