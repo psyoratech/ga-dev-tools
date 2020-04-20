@@ -11,6 +11,7 @@ import Typography from "@material-ui/core/Typography"
 import { Link } from "gatsby"
 import { Home } from "@material-ui/icons"
 import classnames from "classnames"
+import Logo from "-!svg-react-loader!../images/ga-developer-logo.svg"
 
 import "./layout.css"
 
@@ -122,7 +123,8 @@ const Layout: React.FC<LayoutProps> = ({ children, title }) => {
       </nav>
       <main className={classes.main}>
         <header className={classes.header}>
-          TODO - figure out the weird header photo svg thing.
+          {/* TODO - Figure out how to size the logo correctly. I probably want to use media queries with useStyles() */}
+          <Logo style={{ width: "100%", height: "50px" }} />
           <Typography variant="h1">{title}</Typography>
         </header>
         <div className={classes.contentWrapper}>

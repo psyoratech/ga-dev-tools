@@ -5,6 +5,14 @@ module.exports = {
     author: `Google Analytics Developer Relations`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-react-svg`,
+      options: {
+        rule: {
+          include: `${__dirname}/src/images`,
+        },
+      },
+    },
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     {
