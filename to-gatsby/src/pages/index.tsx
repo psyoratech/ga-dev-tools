@@ -39,12 +39,58 @@ const IndexPage = () => (
       Learn how to implement GA and applications that can be built to take
       advantage of the flexibility and power of Google Analytics.
     </Typography>
-    <Typography>
+    <Typography variant="body1">
       The code for this entire site is open source and available on GitHub. We
       encourage you to take a look if you'd like to see how anything is done.
     </Typography>
     <Typography variant="h3">Demos</Typography>
+    <Typography variant="body1">
+      Live demos to help you learn about Google Analytics features.
+      <ul>
+        <li>Working demos with actual data sent to Google Analytics.</li>
+        <li> Use these demos as a reference for your own implementation.</li>
+        <li>Interactive elements that provide implementation code snippets.</li>
+      </ul>
+    </Typography>
+    <Typography variant="h3">Tools</Typography>
+    <Typography variant="body1">
+      Tools to showcase how Google Analytics can be extendend with custom
+      solutions.
+      <ul>
+        <li>Tools are targeted at real-world use cases and solutions.</li>
+        <li>
+          Access advanced Google Analytics features without writing any code.
+        </li>
+        <li>
+          All publicly available technologies are used. Nothing proprietary.
+        </li>
+      </ul>
+    </Typography>
+    <Typography variant="h2">Help &amp; Feedback</Typography>
+    <Typography variant="h3">For this site</Typography>
+    <Typography variant="body1">
+      <ul>
+        <li>You may report bugs by submitting an issue on GitHub.</li>
+        <li>You may also use GitHub to request a new demo or tool.</li>
+      </ul>
+    </Typography>
+    <Typography variant="h3">For the Google Analytics platform</Typography>
+    <Typography variant="body1">
+      <ul>
+        <li>
+          Documentation for all Google Analytics API, libraries and SDKs can be
+          found on Google Analytics Developers.
+        </li>
+        <li>
+          If you have questions, please refer to the getting help section of the
+          developers site to find the best place to get your questions answered.
+        </li>
+      </ul>
+    </Typography>
   </Layout>
 )
-
+/*
+ *
+ *
+ *  */
 export default IndexPage
