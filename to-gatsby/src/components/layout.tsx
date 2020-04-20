@@ -13,18 +13,29 @@ import { Home } from "@material-ui/icons"
 import classnames from "classnames"
 import Logo from "-!svg-react-loader!../images/ga-developer-logo.svg"
 
-import "./layout.css"
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     minHeight: "100%",
   },
-  navLinkBackgroundHover: {
-    "&:hover": {
-      backgroundColor: theme.palette.grey[100],
-      color: theme.palette.getContrastText(theme.palette.grey[100]),
-    },
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 1,
+    minHeight: "100%",
+  },
+  contentWrapper: {
+    flexGrow: 1,
+    color: theme.palette.getContrastText(theme.palette.grey[200]),
+    backgroundColor: theme.palette.grey[200],
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(4),
+    maxWidth: "52em",
+  },
+  header: {
+    padding: theme.spacing(4, 6, 4),
   },
   nav: {
     minWidth: "260px",
@@ -53,6 +64,12 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     paddingLeft: theme.spacing(4),
   },
+  navLinkBackgroundHover: {
+    "&:hover": {
+      backgroundColor: theme.palette.grey[100],
+      color: theme.palette.getContrastText(theme.palette.grey[100]),
+    },
+  },
   home: {
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
@@ -66,25 +83,6 @@ const useStyles = makeStyles(theme => ({
   homeIcon: {
     padding: theme.spacing(1),
     fontSize: "1.5em",
-  },
-  main: {
-    display: "flex",
-    flexDirection: "column",
-    flexGrow: 1,
-    minHeight: "100%",
-  },
-  contentWrapper: {
-    flexGrow: 1,
-    color: theme.palette.getContrastText(theme.palette.grey[200]),
-    backgroundColor: theme.palette.grey[200],
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(4),
-    maxWidth: "52em",
-  },
-  header: {
-    padding: theme.spacing(4, 6, 4),
   },
 }))
 

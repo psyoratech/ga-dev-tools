@@ -40,8 +40,9 @@ const IndexPage = () => (
       advantage of the flexibility and power of Google Analytics.
     </Typography>
     <Typography variant="body1">
-      The code for this entire site is open source and available on GitHub. We
-      encourage you to take a look if you'd like to see how anything is done.
+      The code for this entire site is open source and{" "}
+      <a href="#TODO">available on GitHub</a>. We encourage you to take a look
+      if you'd like to see how anything is done.
     </Typography>
     <Typography variant="h3">Demos</Typography>
     <Typography variant="body1">
@@ -70,8 +71,14 @@ const IndexPage = () => (
     <Typography variant="h3">For this site</Typography>
     <Typography variant="body1">
       <ul>
-        <li>You may report bugs by submitting an issue on GitHub.</li>
-        <li>You may also use GitHub to request a new demo or tool.</li>
+        <li>
+          You may report bugs by <a href="#TODO">submitting an issue</a> on
+          GitHub.
+        </li>
+        <li>
+          You may also use GitHub to{" "}
+          <a href="#TODO">request a new demo or tool</a>.
+        </li>
       </ul>
     </Typography>
     <Typography variant="h3">For the Google Analytics platform</Typography>
@@ -79,11 +86,12 @@ const IndexPage = () => (
       <ul>
         <li>
           Documentation for all Google Analytics API, libraries and SDKs can be
-          found on Google Analytics Developers.
+          found on <a href="#TODO">Google Analytics Developers</a>.
         </li>
         <li>
-          If you have questions, please refer to the getting help section of the
-          developers site to find the best place to get your questions answered.
+          If you have questions, please refer to the{" "}
+          <a href="#TODO">getting help</a> section of the developers site to
+          find the best place to get your questions answered.
         </li>
       </ul>
     </Typography>

@@ -3,17 +3,13 @@
  *
  * See: https://www.gatsbyjs.org/docs/browser-apis/
  */
-
-// You can delete this file if you're not using it
 import React from "react"
 import CssBaseline from "@material-ui/core/CssBaseline"
 import { ThemeProvider } from "@material-ui/core"
-import { createMuiTheme } from "@material-ui/core/styles"
+import { createMuiTheme, withStyles } from "@material-ui/core/styles"
 import orange from "@material-ui/core/colors/orange"
 
-console.log(CssBaseline)
-
-const theme = createMuiTheme({
+const globalTheme = createMuiTheme({
   palette: {
     primary: orange,
   },
@@ -37,11 +33,36 @@ const theme = createMuiTheme({
   }),
 })
 
+const styles = theme => ({
+  "@global": {
+    "html body #gatsby-focus-wrapper, #___gatsby": {
+      height: "100%",
+      margin: 0,
+      padding: 0,
+    },
+    p: {
+      paddingBottom: theme.spacing(1),
+    },
+    a: {
+      color: theme.palette.primary[800],
+    },
+  },
+})
+
+// This is a bit weird, but it's the easiest way to set global css that can use
+// values from the theme object.
+const MyBaseline = withStyles(styles)(() => {
+  return null
+})
+
 export const wrapRootElement = ({ element }) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <ThemeProvider theme={theme}>{element}</ThemeProvider>
+      <ThemeProvider theme={globalTheme}>
+        <MyBaseline />
+        {element}
+      </ThemeProvider>
     </React.Fragment>
   )
 }
