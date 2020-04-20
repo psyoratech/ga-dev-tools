@@ -18,6 +18,7 @@ import "./layout.css"
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
+    minHeight: "100%",
   },
   navLinkBackgroundHover: {
     "&:hover": {
@@ -70,7 +71,7 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     flexDirection: "column",
     flexGrow: 1,
-    height: "100%",
+    minHeight: "100%",
   },
   contentWrapper: {
     flexGrow: 1,
