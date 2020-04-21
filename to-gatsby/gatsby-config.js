@@ -1,3 +1,11 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+if (process.env.GA_MEASUREMENT_ID === undefined) {
+  throw new Error("GA_MEASUREMENT_ID environment variable must be set.")
+}
+
 module.exports = {
   siteMetadata: {
     title: `Discover the Google Analytics Platform`,

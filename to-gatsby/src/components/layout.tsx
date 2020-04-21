@@ -12,6 +12,7 @@ import { Link } from "gatsby"
 import { Home } from "@material-ui/icons"
 import classnames from "classnames"
 import Logo from "-!svg-react-loader!../images/ga-developer-logo.svg"
+import { useLocation } from "@reach/router"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -104,11 +105,42 @@ const NavLink: React.FC<NavLinkProps> = ({ classes, to, children }) => {
   )
 }
 
+const usePageView = (
+  measurementId: string | undefined = process.env.GA_MEASUREMENT_ID
+) => {
+  const location = useLocation()
+  const [forceRetry, setForceRetry] = React.useState(1)
+  React.useEffect(() => {
+    if (measurementId === undefined) {
+      throw new Error("No measurementId is set.")
+    }
+    /**
+       Since gtag loads asynchronously, it will sometimes be undefined the first
+       time this hook loads. In order to make sure landings are still measured
+       (and not double measured), we use `forceRetry` to make this hook run
+       again in 50ms. If this doesn't work after 10 tries, we assume gtag is
+       unavailable and stop trying to reload it.
+     */
+    if (window.gtag === undefined && forceRetry < 10) {
+      setTimeout(() => {
+        setForceRetry(a => a + 1)
+      }, 50)
+      return
+    }
+    if (window.gtag !== undefined) {
+      window.gtag("config", measurementId, {
+        page_path: location.pathname,
+      })
+    }
+  }, [location.pathname, measurementId, forceRetry])
+}
+
 interface LayoutProps {
   title: string
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, title }) => {
+  usePageView()
   const classes = useStyles()
 
   return (
